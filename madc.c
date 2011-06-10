@@ -1,9 +1,5 @@
 /*
- *  V4L2 video capture example
- *
- *  This program can be used and distributed without restrictions.
- *
- *  Modified and hard-coded for my own camera testing.
+ * Test program to read twl4030-madc ADCs on a Gumstix Overo.
  */
 
 #include <stdio.h>
