@@ -10,9 +10,12 @@
 #include <sys/ioctl.h>
 #include <stdint.h>
 
-/* copied from kernel src include/linux/i2c */
-#define u8 	uint8_t
-#define u16	uint16_t
+/* 
+ Copied twl4030-madc.h from kernel src include/linux/i2c 
+ and needed a couple of user typedefs for the user kernel types. 
+*/
+typedef uint8_t u8;
+typedef uint16_t u16;
  
 #include "twl4030-madc.h"
 
@@ -64,7 +67,8 @@ int main(int argc, char **argv)
 	}
 
 	if (argc < 2) {
-		printf("Usage: %s <channel list, comma separated or 'all'\n", argv[0]);
+		printf("Usage: %s <channel list, space separated>\n", argv[0]);
+		printf("       %s all\n", argv[0]);
 		exit(0);
 	}
 	else if (argc == 2) {
@@ -82,7 +86,7 @@ int main(int argc, char **argv)
 			if (ch >= 0 && ch < TWL4030_MADC_MAX_CHANNELS)
 				read_channel(fd, ch);
 			else
-				printf("Bad channel %d\n", ch);
+				printf("Bad channel number %d\n", ch);
 		}
 	}
 
