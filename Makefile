@@ -22,9 +22,6 @@ TARGET = madc-test
 $(TARGET): madc.c
 	$(CC) $(CFLAGS) -I $(INCDIR) -L $(LIBDIR) madc.c -o $(TARGET)
 
-install:
-	scp $(TARGET) root@econ:/home/root
-
 clean:
 	rm -f $(TARGET)
 
