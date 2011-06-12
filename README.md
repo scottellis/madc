@@ -10,10 +10,16 @@ The twl4030-madc are 10-bit ADC's with a voltage input range 0 - 2.5v
 -------
 
 The Makefile assumes a typical Gumstix OE cross-compile setup on a workstation.
+You can export a different OETMP in your environment if you aren't using the 
+default Gumstix paths.
 
 	~$ git clone git://github.com/scottellis/madc.git
 	~$ cd madc
 	~/madc$ make
+
+or for a different OETMP
+
+	~/madc$ OETMP=/oe1 make
 
 
 Copy the resulting madc-test executable to the Overo however is convenient.
