@@ -9,7 +9,7 @@ The twl4030-madc are 10-bit ADC's with a voltage input range 0 - 2.5v
   Download Code
 -------
 
-The Makefile is for an OE cross-compile setup on a workstation typical with gumstix usage.
+The Makefile assumes a typical Gumstix OE cross-compile setup on a workstation.
 
 	~$ git clone git://github.com/scottellis/madc.git
 	~$ cd madc

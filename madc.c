@@ -12,7 +12,7 @@
 
 /* 
  Copied twl4030-madc.h from kernel src include/linux/i2c 
- and needed a couple of user typedefs for the user kernel types. 
+ and needed a couple of userland typedefs for kernel types. 
 */
 typedef uint8_t u8;
 typedef uint16_t u16;
