@@ -19,9 +19,9 @@ typedef uint16_t u16;
  
 #include "twl4030-madc.h"
 
-/* only query the external channels 2-7 when 'all' selected */
-#define MIN_CHANNEL 2
-#define MAX_CHANNEL 7
+/* only query the exposed Overo external channels when no specific channel is specified */
+#define MIN_OVERO_CHANNEL 2
+#define MAX_OVERO_CHANNEL 7
 
 
 int read_channel(int fd, int ch, int avg, int machine_read)
@@ -62,14 +62,6 @@ int read_channel(int fd, int ch, int avg, int machine_read)
 	return param.status;
 }
 
-void read_all_channels(int fd, int avg, int machine_read)
-{
-	int i;
-
-	for (i = MIN_CHANNEL; i < MAX_CHANNEL; i++)
-		read_channel(fd, i, avg, machine_read);
-}
-
 void usage(const char *argv_0)
 {
 	printf("Usage: %s [options] [channel list]\n", argv_0);
@@ -78,7 +70,7 @@ void usage(const char *argv_0)
 	printf("  -m          Machine readable format ch:raw:voltage\n");
 	printf("  -h          Show this help message\n\n");
 	printf("channel list  A space separated list of channel numbers 0-15.\n");
-	printf("              If no channel list is supplied, channels 2-6 are read.\n\n");
+	printf("              If no channel list is supplied, channels 2-7 are read.\n\n");
 	printf("  Example: %s -a 2 4 6\n\n", argv_0);
 }
 
@@ -118,7 +110,8 @@ int main(int argc, char **argv)
 	}	
 
 	if (optind == argc) {
-		read_all_channels(fd, avg, machine_read);
+		for (i = MIN_OVERO_CHANNEL; i <= MAX_OVERO_CHANNEL; i++)
+			read_channel(fd, i, avg, machine_read);
 	}
 	else {
 		for (i = optind; i < argc; i++) {
