@@ -19,7 +19,7 @@ typedef uint16_t u16;
  
 #include "twl4030-madc.h"
 
-/* only query the exposed Overo external channels when no specific channel is specified */
+/* only query the exposed Overo ADCs when no channel is specified */
 #define MIN_OVERO_CHANNEL 2
 #define MAX_OVERO_CHANNEL 7
 
