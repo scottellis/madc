@@ -1,0 +1,17 @@
+# Use this makefile for a native build on the gumstix
+# Example: 
+# make -f Makefile-native
+
+CC = gcc
+CFLAGS = -Wall
+
+TARGET = madc-test
+
+$(TARGET): madc.c
+	$(CC) $(CFLAGS) madc.c -o $(TARGET)
+
+clean:
+	rm -f $(TARGET)
+
+
+
