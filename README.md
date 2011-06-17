@@ -1,7 +1,7 @@
-  madc-test
+  madc
 =======
 
-Simple example program to read the Overo twl4030-madc values.
+Simple program to read the Overo twl4030-madc values.
 
 The twl4030-madc are 10-bit ADC's with a voltage input range 0 - 2.5v
 
@@ -22,16 +22,16 @@ or for a different OETMP
 	~/madc$ OETMP=/oe1 make
 
 
-Copy the resulting madc-test executable to the Overo however is convenient.
+Copy the resulting *madc* executable to the Overo however is convenient.
 
 
   Usage
 -------
 
-Assuming you copied the madc-test program to /home/root on the Overo.
+Assuming you copied the *madc* program to /home/root on the Overo.
 
-	root@overo:~# ./madc-test -h
-	Usage: ./madc-test [options] [channel list]
+	root@overo:~# ./madc -h
+	Usage: ./madc [options] [channel list]
 	Options
 	  -a          Request the device driver average 4 readings
 	  -m          Machine readable format ch:raw:voltage
@@ -40,12 +40,12 @@ Assuming you copied the madc-test program to /home/root on the Overo.
 	channel list  A space separated list of channel numbers 0-15.
 		      If no channel list is supplied, channels 2-6 are read.
 
-	  Example: ./madc-test -a 2 4 6
+	  Example: ./madc -a 2 4 6
 
 
 So for example
 
-	root@overo:~# ./madc-test   
+	root@overo:~# ./madc   
 	madc[ 2] raw =  413  voltage = 1.01
 	madc[ 3] raw =  405  voltage = 0.99
 	madc[ 4] raw =  407  voltage = 0.99
@@ -55,9 +55,9 @@ So for example
 Channels 2-6 had 1.0v applied with a bench power supply.
 
 
-Or two channels, average of 4 reads, output in machine friendly format 
+Or two channels, average of 4 reads, output in a machine friendlier format 
 
-	root@overo:~# ./madc-test -a -m 2 4   
+	root@overo:~# ./madc -a -m 2 4   
 	2:615:1.50
 	4:618:1.51
 

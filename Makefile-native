@@ -5,7 +5,7 @@
 CC = gcc
 CFLAGS = -Wall
 
-TARGET = madc-test
+TARGET = madc
 
 $(TARGET): madc.c
 	$(CC) $(CFLAGS) madc.c -o $(TARGET)

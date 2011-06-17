@@ -17,7 +17,7 @@ LIBDIR = $(STAGEDIR)/lib
 
 INCDIR = $(STAGEDIR)/include
 
-TARGET = madc-test
+TARGET = madc
 
 $(TARGET): madc.c
 	$(CC) $(CFLAGS) -I $(INCDIR) -L $(LIBDIR) madc.c -o $(TARGET)
